@@ -101,8 +101,6 @@ echo "Decrypted: $decryptedText\n";
 ```
 
 -----------
------------
------------
 
 * Example of using hash functions
 ```php
