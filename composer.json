@@ -1,0 +1,31 @@
+{
+    "name": "phicorp/cipher",
+    "description": "Cipher: A tool for easier working with cryptography for PHP language",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fibo",
+            "email": "thephibonacci@gmail.com"
+        }
+    ],
+    "keywords": [
+        "cryptography",
+        "symmetric",
+        "Asymmetric",
+        "phi",
+        "Maya",
+        "RSA",
+        "AES",
+        "Cipher"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Cipher\\": "src/Cipher/"
+        },
+        "files": [
+            "src/Cipher/cipherHelper.php"
+        ]
+    }
+}
