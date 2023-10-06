@@ -9,7 +9,7 @@ A tool for easier working with cryptography for PHP language
 Install Cipher with composer
 
 ```bash
-    composer require phicorp/cipher
+composer require phicorp/cipher
 ```
     
 ## Features
