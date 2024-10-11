@@ -1,7 +1,7 @@
 {
     "name": "phicorp/cipher",
     "description": "Cipher: A tool for easier working with cryptography for PHP language",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "type": "library",
     "license": "MIT",
     "authors": [
