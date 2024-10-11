@@ -34,7 +34,7 @@ if (!function_exists('decrypt')) {
      * @param int $keySize The key size in bits (default is 256).
      * @return string The decrypted plaintext.
      */
-    function decrypt($ciphertext, $key, $iv, $mode = "CBC", $keySize = 256)
+    function decrypt($ciphertext, $key, $iv = null, $mode = "CBC", $keySize = 256)
     {
         if (is_null($iv)) {
             $iv = getIVfromKey($key);
