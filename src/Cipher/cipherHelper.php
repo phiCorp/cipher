@@ -13,8 +13,12 @@ if (!function_exists('encrypt')) {
      * @param int $keySize The key size in bits (default is 256).
      * @return string The encrypted ciphertext.
      */
-    function encrypt($plaintext, $key, $iv, $mode = "CBC", $keySize = 256)
+    function encrypt($plaintext, $key, $iv = null, $mode = "CBC", $keySize = 256)
     {
+        if (is_null($iv)) {
+            $iv = getIVfromKey($key);
+        }
+
         return Cipher::AES($mode, $keySize)->key($key)->iv($iv)->encrypt($plaintext);
     }
 }
@@ -32,6 +36,10 @@ if (!function_exists('decrypt')) {
      */
     function decrypt($ciphertext, $key, $iv, $mode = "CBC", $keySize = 256)
     {
+        if (is_null($iv)) {
+            $iv = getIVfromKey($key);
+        }
+
         return Cipher::AES($mode, $keySize)->key($key)->iv($iv)->decrypt($ciphertext);
     }
 }
@@ -144,5 +152,16 @@ if (!function_exists('bcrypt_verify')) {
     function bcrypt_verify($password, $hash)
     {
         return Cipher::bcrypt_verify($password, $hash);
+    }
+}
+
+if (!function_exists('getIVfromKey')) {
+    function getIVfromKey($key)
+    {
+        if (strlen($key) !== 32) {
+            throw new InvalidArgumentException("Key must be 32 bytes long.");
+        }
+
+        return substr(hash('sha256', $key, true), 0, 16);
     }
 }
